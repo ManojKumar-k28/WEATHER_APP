@@ -25,7 +25,7 @@ const App: React.FC = () => {
     if (location.trim() !== "") {
       fetchWeather(location);
     } else {
-      setError("Please enter a valid location name.");
+      setError("Please enter a valid location.");
     }
   };
 
