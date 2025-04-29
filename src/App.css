@@ -1,10 +1,8 @@
-/* * App.css */
-
+/* Mirror Background Effect */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #3a98ce, #2b668d);
   color: white;
   text-align: center;
   overflow: hidden;
@@ -12,8 +10,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(135deg, #3a98ce, #2b668d); /* Base gradient */
+  background-size: 400% 400%; /* Animate gradient flow */
+  animation: gradient-flow 5s ease infinite;
 }
 
+/* Main App Layout */
 .App {
   display: flex;
   flex-direction: column;
@@ -23,23 +25,42 @@ body {
   padding: 20px;
 }
 
+/* Hourly Forecast Cards */
+.hourly-forecast {
+  margin-top: 20px;
+}
+
+.hourly-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-  max-width: 450px;
-  width: 100%;
+  margin: 10px;
+  width: 160px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  margin: 20px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  margin: 5px 0;
 }
 
 .card:hover {
-  transform: translateY(-15px) scale(1.1);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
-  background: rgba(255, 255, 255, 0.25); /* Subtle highlight on hover */
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 h1 {
@@ -49,7 +70,6 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-flow 3s infinite;
-  text-shadow: 2px 2px 4px rgba(255, 213, 97, 0);
 }
 
 h2 {
@@ -57,17 +77,6 @@ h2 {
   margin: 15px 0;
   color: #ffcc00;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-}
-
-p {
-  font-size: 1.3rem;
-  margin: 10px 0;
-  color: #f5f5f5;
-}
-
-strong {
-  color: #ffcc00;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 button {
@@ -106,6 +115,7 @@ input:focus {
   border-color: #ff66cc;
 }
 
+/* Gradient Flow Animation */
 @keyframes gradient-flow {
   0% {
     background-position: 0% 50%;
@@ -116,33 +126,4 @@ input:focus {
   100% {
     background-position: 0% 50%;
   }
-}
-
-/* Add floating effect for the weather card */
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.card {
-  animation: float 3s ease-in-out infinite;
-}
-
-.error-message {
-  color: #ff6666;
-  font-size: 1.1rem;
-  margin-top: 10px;
-}
-
-.loading-message {
-  font-size: 1.1rem;
-  margin-top: 10px;
-  color: #f1f1f1;
 }
